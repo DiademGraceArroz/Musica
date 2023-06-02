@@ -1,0 +1,21 @@
+{
+  "name": "musica",
+  "version": "1.0.0",
+  "description": "a web application that will enable users to use the genre classifier to their advantage using K-nearest neighbors (KNN) algorithm",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DiademGraceArroz/musica.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DiademGraceArroz/musica/issues"
+  },
+  "homepage": "https://github.com/DiademGraceArroz/musica#readme"
+}
