@@ -1,57 +1,12 @@
 body {
   font-family: Arial, sans-serif;
   font-size: 23px;
-  background-color: lightskyblue;
-  margin: 0;
-  padding: 20px;
-}
-
-h1 {
-  text-align: center;
-}
-
-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto;
-  max-width: 500px;
-}
-
-label {
-  font-weight: bold;
-  margin-right: 10px;
-}
-
-h2 {
-  display: block;
-  margin: auto;
-  text-align: center;
-  font-size: 50px;
-  font-weight: bold;
-}
-
-#result {
-  display: block;
-  margin: auto;
-  text-align: center;
-  font-size: 50px;
-  font-weight: bold;
-  color: red;
-}
-
-p {
-  text-align: center;
-}
-body {
-  font-family: Arial, sans-serif;
-  font-size: 23px;
   background-color: #f2f2f2;
   margin: 0;
   padding: 20px;
-  background-image: url("https://www.nammfoundation.org/sites/default/files/styles/project_article_primary_721x405/public/files/2019-09/Music%20blog.jpg?itok=O7RfJUT5");
-  background-size: 180vw 180vh;
+  background-image: url("musica.png");
+  background-size: cover;
+  background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
 }
@@ -125,7 +80,7 @@ button:hover {
   text-align: center;
   font-size: 50px;
   font-weight: bold;
-  color: red;
+  color: white;
 }
 p {
   text-align: center;
