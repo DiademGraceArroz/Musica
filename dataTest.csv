@@ -1,0 +1,49 @@
+title: "Kiss from a Rose",
+artist: "Seal",
+genre: "R&B",
+features: [87, 68, 70],
+
+title: "All of Me",
+artist: "John Legend",
+genre: "R&B",
+features: [80, 60, 100],
+
+title: "Dear Mama",
+artist: "2Pac",
+genre: "Hip-Hop",
+features: [71, 69, 33],
+
+title: "Fight the Power",
+artist: "Public Enemy",
+genre: "Hip-Hop",
+features: [89, 72, 50],
+
+title: "Fly Me To The Moon",
+artist: "Frank Sinatra",
+genre: "Jazz",
+features: [40, 60, 90],
+
+title: "L-O-V-E",
+artist: "Nat King Cole",
+genre: "Jazz",
+features: [34, 70, 85],
+
+title: "Master of Puppets",
+artist: "Metallica",
+genre: "Metal",
+features: [110, 93, 86],
+
+title: "Fear of the Dark",
+artist: "Iron Maiden",
+genre: "Metal",
+features: [89, 91, 82],
+
+title: "Can't Stop the Feeling",
+artist: "Justin Timberlake",
+genre: "Pop",
+features: [113, 81, 68],
+
+title: "Paranoid",
+artist: "Black Sabbath",
+genre: "Rock",
+features: [140, 120, 60],

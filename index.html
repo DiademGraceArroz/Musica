@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Mūsica</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>Mūsica</h1>
+    <h5>Top Spotify songs from 2010-2019</h5>
+    <form>
+      <p>
+        <label for="title">Song Title:</label>
+        <input type="text" id="title" name="title" placeholder="Song Title" />
+        <label for="artist">Artist:</label>
+        <input type="text" id="artist" name="artist" placeholder="Artist" />
+      </p>
+      <br />
+      <label for="tempo">Tempo:</label>
+      <input type="number" id="tempo" name="tempo" min="0" />
+      <label for="energy">Energy:</label>
+      <input type="number" id="energy" name="energy" min="0" />
+      <label for="danceability">Danceability:</label>
+      <input type="number" id="danceability" name="danceability" min="0" />
+      <p>
+        <button type="button" id="classifyButton">Classify</button>
+        <button type="button" id="clearButton" onclick="clearInputs()">
+          Clear
+        </button>
+      </p>
+    </form>
+
+    <p class="centered">The Classified Genre is: <span id="result"></span></p>
+    <script type="module" src="codeBase.js"></script>
+  </body>
+</html>

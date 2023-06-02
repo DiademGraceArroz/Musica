@@ -1,0 +1,132 @@
+body {
+  font-family: Arial, sans-serif;
+  font-size: 23px;
+  background-color: lightskyblue;
+  margin: 0;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  max-width: 500px;
+}
+
+label {
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+h2 {
+  display: block;
+  margin: auto;
+  text-align: center;
+  font-size: 50px;
+  font-weight: bold;
+}
+
+#result {
+  display: block;
+  margin: auto;
+  text-align: center;
+  font-size: 50px;
+  font-weight: bold;
+  color: red;
+}
+
+p {
+  text-align: center;
+}
+body {
+  font-family: Arial, sans-serif;
+  font-size: 23px;
+  background-color: #f2f2f2;
+  margin: 0;
+  padding: 20px;
+  background-image: url("https://www.nammfoundation.org/sites/default/files/styles/project_article_primary_721x405/public/files/2019-09/Music%20blog.jpg?itok=O7RfJUT5");
+  background-size: 180vw 180vh;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+h1 {
+  text-align: center;
+}
+
+h5 {
+  text-align: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  max-width: 500px;
+}
+
+label {
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+input[type="text"],
+input[type="number"] {
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  border: 1px solid #333;
+  width: 100%;
+  max-width: 400px;
+}
+
+input::placeholder {
+  color: #999;
+  font-style: italic;
+  font-size: 15px;
+}
+
+button {
+  background-color: #4caf50;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: lightskyblue;
+}
+
+#classifyButton {
+  background-color: #333;
+}
+
+#clearButton {
+  background-color: #f44336;
+}
+
+#result {
+  display: block;
+  margin: auto;
+  text-align: center;
+  font-size: 50px;
+  font-weight: bold;
+  color: red;
+}
+p {
+  text-align: center;
+}
