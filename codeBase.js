@@ -11,8 +11,14 @@ function classify() {
   let songFeatures = [];
 
   // Song Title and Artists fields are empty
-  if (!songTitle || !songArtist) {
+  if (!songTitle && !songArtist) {
     alert("Please input song title and artist.");
+    return;
+  } else if (!songTitle) {
+    alert("Please input song title.");
+    return;
+  } else if (!songArtist) {
+    alert("Please input artist.");
     return;
   }
 
