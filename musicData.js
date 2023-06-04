@@ -4,6 +4,7 @@ export const musicData = [
    * Tempo - Beats per minute
    * Energy - The higher the value, the more energetic the song is
    * Danceability - The higher the value, the easier it is to dance to the song.
+   * 603 songs
    * Reference: https://www.kaggle.com/datasets/leonardopena/top-spotify-songs-from-20102019-by-year
    */
   {

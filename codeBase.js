@@ -61,11 +61,11 @@ function classify() {
   for (let i = 0; i < kNearestNeighbors.length; i++) {
     const genre = musicData[kNearestNeighbors[i].index].genre;
     genreCounts[genre] = genreCounts[genre] ? genreCounts[genre] + 1 : 1;
-    console.log(
-      `Neighbor ${i + 1}: Genre - ${genre}, Distance - ${
-        kNearestNeighbors[i].distance
-      }`
-    );
+    // console.log(
+    //   `Neighbor ${i + 1}: Genre - ${genre}, Distance - ${
+    //     kNearestNeighbors[i].distance
+    //   }`
+    // );
   }
 
   let maxCount = 0;
