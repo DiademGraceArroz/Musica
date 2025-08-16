@@ -1,55 +1,96 @@
 import { musicData } from "./musicData.js";
 import { euclideanDistance } from "./euclideanDistance.js";
 
+// DOM Elements
 const classifyButton = document.getElementById("classifyButton");
-classifyButton.addEventListener("click", () => classify());
+const clearButton = document.getElementById("clearButton");
 
-function classify() {
-  const songTitle = document.getElementById("title").value.toLowerCase();
-  const songArtist = document.getElementById("artist").value.toLowerCase();
+// Initialize page navigation
+function setupNavigation() {
+  // Simple page navigation
+  function showPage(pageId) {
+    // Hide all pages
+    document.querySelectorAll('[id$="-page"]').forEach((page) => {
+      page.classList.add("hidden-page");
+    });
 
-  let songFeatures = [];
+    // Show selected page
+    document.getElementById(`${pageId}-page`).classList.remove("hidden-page");
 
-  // Song Title and Artists fields are empty
-  if (!songTitle && !songArtist) {
-    alert("Please input song title and artist.");
-    return;
-  } else if (!songTitle) {
-    alert("Please input song title.");
-    return;
-  } else if (!songArtist) {
-    alert("Please input artist.");
-    return;
+    // Scroll to top
+    window.scrollTo(0, 0);
   }
 
-  // Search for song in musicData
+  // Set up navigation links
+  document.querySelectorAll('[onclick^="showPage"]').forEach((link) => {
+    link.addEventListener("click", (e) => {
+      e.preventDefault();
+      const pageId = link
+        .getAttribute("onclick")
+        .match(/showPage\('(.+)'\)/)[1];
+      showPage(pageId);
+    });
+  });
+
+  // Show home page by default
+  showPage("home");
+}
+
+// Classification function
+function classify() {
+  const songTitle = document.getElementById("title").value.trim().toLowerCase();
+  const songArtist = document
+    .getElementById("artist")
+    .value.trim()
+    .toLowerCase();
+
+  // Reset error messages
+  document.getElementById("title-error").classList.add("hidden");
+  document.getElementById("artist-error").classList.add("hidden");
+
+  let hasError = false;
+
+  // Validation
+  if (!songTitle) {
+    document.getElementById("title-error").classList.remove("hidden");
+    hasError = true;
+  }
+  if (!songArtist) {
+    document.getElementById("artist-error").classList.remove("hidden");
+    hasError = true;
+  }
+  if (hasError) return;
+
+  // Search for song in dataset
   const songIndex = musicData.findIndex(
     (song) =>
       song.title.toLowerCase() === songTitle &&
       song.artist.toLowerCase() === songArtist
   );
 
-  // Populate form with song's features if found
+  let songFeatures = [];
+
+  // If song found, get features
   if (songIndex !== -1) {
     songFeatures = musicData[songIndex].features;
-    document.getElementById("tempo").value = songFeatures[0];
-    document.getElementById("energy").value = songFeatures[1];
-    document.getElementById("danceability").value = songFeatures[2];
+
+    document.getElementById("result-tempo").innerText = songFeatures[0];
+    document.getElementById("result-energy").innerText = songFeatures[1];
+    document.getElementById("result-danceability").innerText = songFeatures[2];
   } else {
-    // Clear form and display error message if song is not found
-    document.getElementById("tempo").value = "";
-    document.getElementById("energy").value = "";
-    document.getElementById("danceability").value = "";
-    document.getElementById("result").innerHTML = "Song not found";
+    document.getElementById("result-tempo").innerText = "--";
+    document.getElementById("result-energy").innerText = "--";
+    document.getElementById("result-danceability").innerText = "--";
+    document.getElementById("result-genre").innerText = "Song not found ❌";
     return;
   }
 
-  // number of nearest neighbors
+  // KNN Classification
   let k = 25;
   let nearestNeighbors = [];
 
   for (let i = 0; i < musicData.length; i++) {
-    if (i === songIndex) continue; // Skip the test song itself
+    if (i === songIndex) continue;
     const distance = euclideanDistance(songFeatures, musicData[i].features);
     nearestNeighbors.push({ index: i, distance: distance });
   }
@@ -61,11 +102,6 @@ function classify() {
   for (let i = 0; i < kNearestNeighbors.length; i++) {
     const genre = musicData[kNearestNeighbors[i].index].genre;
     genreCounts[genre] = genreCounts[genre] ? genreCounts[genre] + 1 : 1;
-    // console.log(
-    //   `Neighbor ${i + 1}: Genre - ${genre}, Distance - ${
-    //     kNearestNeighbors[i].distance
-    //   }`
-    // );
   }
 
   let maxCount = 0;
@@ -77,17 +113,30 @@ function classify() {
       maxGenre = genre;
     }
   }
-  document.getElementById("result").innerHTML = maxGenre;
+
+  document.getElementById("result-genre").innerText = maxGenre;
 }
 
-const clearButton = document.getElementById("clearButton");
-clearButton.addEventListener("click", () => clearInputs());
-
+// Clear inputs function
 function clearInputs() {
   document.getElementById("title").value = "";
   document.getElementById("artist").value = "";
-  document.getElementById("tempo").value = "";
-  document.getElementById("energy").value = "";
-  document.getElementById("danceability").value = "";
-  document.getElementById("result").innerHTML = "";
+
+  // Hide errors
+  document.getElementById("title-error").classList.add("hidden");
+  document.getElementById("artist-error").classList.add("hidden");
+
+  // Clear results
+  document.getElementById("result-tempo").innerText = "--";
+  document.getElementById("result-energy").innerText = "--";
+  document.getElementById("result-danceability").innerText = "--";
+  document.getElementById("result-genre").innerText = "--";
 }
+
+// Event Listeners
+document.addEventListener("DOMContentLoaded", () => {
+  setupNavigation();
+
+  classifyButton.addEventListener("click", () => classify());
+  clearButton.addEventListener("click", () => clearInputs());
+});
